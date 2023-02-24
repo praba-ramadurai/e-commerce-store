@@ -8,10 +8,13 @@ import {
   Cart,
   Error,
 } from "./pages";
+import { Navbar, Sidebar, Footer } from "./components";
 
 function App() {
   return (
     <Router>
+      <Navbar />
+      <Sidebar />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -33,6 +36,7 @@ function App() {
           <Error />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }
