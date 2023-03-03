@@ -5,16 +5,17 @@ import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
 import styled from "styled-components";
 import CartButton from "./CartButton";
+import { useProductsContext } from "../context/products_context";
 
 const Sidebar = () => {
-  const isOpen = true;
+  const {isSidebarOpen,closeSidebar}=useProductsContext()
 
   return (
     <SidebarContainer>
-      <aside className={`${isOpen ? "sidebar show-sidebar" : "sidebar"}`}>
+      <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
         <div className="sidebar-header">
           <img src={logo} className="logo" alt="E-commerce application" />
-          <button className="close-btn">
+          <button className="close-btn" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
@@ -22,12 +23,12 @@ const Sidebar = () => {
           {links.map(({ id, text, url }) => {
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url} onClick={closeSidebar}>{text}</Link>
               </li>
             );
           })}
           <li>
-            <Link to="/"> checkout</Link>
+            <Link to="/" onClick={closeSidebar}> checkout</Link>
           </li>
         </ul>
         <CartButton />

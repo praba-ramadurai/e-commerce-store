@@ -6,8 +6,11 @@ import { FaBars } from "react-icons/fa";
 import { links } from 
 "../utils/constants";
 import CartButton from "./CartButton";
+import { useProductsContext } from "../context/products_context";
 
 const Navbar = () => {
+  const {isOpenSidebar}=useProductsContext();
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -15,7 +18,7 @@ const Navbar = () => {
           <Link to="/">
             <img src={logo} alt="e-commerce logo" />
           </Link>
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={isOpenSidebar}>
             <FaBars />
           </button>
         </div>
