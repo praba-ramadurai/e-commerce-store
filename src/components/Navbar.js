@@ -3,7 +3,9 @@ import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { links } from "../utils/constants";
+import { links } from 
+"../utils/constants";
+import CartButton from "./CartButton";
 
 const Navbar = () => {
   return (
@@ -27,6 +29,7 @@ const Navbar = () => {
             );
           })}
         </ul>
+        <CartButton/>
       </div>
     </NavContainer>
   );
